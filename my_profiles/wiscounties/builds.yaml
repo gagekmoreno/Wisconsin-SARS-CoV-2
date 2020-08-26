@@ -1,0 +1,46 @@
+# Define locations for which builds should be created.
+# For each build we specify a subsampling scheme via an explicit key.
+# If the name of the focal geography differs from the build name this needs to
+# be specified explicity as geographic_name. In addition, we require the
+# geographic scale the build focuses on. Together name and scale serve a look-up
+# in the geo_hierarchy to define region, country, division, etc
+builds:
+  wisconsin-dane-county:
+    subsampling_scheme: dane-county
+    geographic_scale: location
+    region: North America
+    country: USA
+    division: Wisconsin
+    location: Dane County
+  wisconsin-milwaukee-county:
+    subsampling_scheme: milwaukee
+    geographic_scale: location
+    region: North America
+    country: USA
+    division: Wisconsin
+    location: Milwaukee County  
+  wisconsin-avrl:
+    subsampling_scheme: avrl
+    geographic_scale: country
+    region: North America
+    country: USA
+
+subsampling:
+  avrl:
+    avrl:
+      group_by: "originating_lab year month"
+      seq_per_group: 1000
+      exclude: "--exclude-where 'originating_lab!=University of Wisconsin-Madison AIDS Vaccine Research Laboratories'"
+  dane-county:
+    dane-county:
+      group_by: "location year month"
+      seq_per_group: 500
+      exclude: "--exclude-where 'location!=Dane County'"
+  milwaukee:
+    milwaukee:
+      group_by: "location year month"
+      seq_per_group: 500
+      exclude: "--exclude-where 'location!=Milwaukee County'"
+
+
+  
