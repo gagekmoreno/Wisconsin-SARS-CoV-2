@@ -4,34 +4,38 @@
 # be specified explicity as geographic_name. In addition, we require the
 # geographic scale the build focuses on. Together name and scale serve a look-up
 # in the geo_hierarchy to define region, country, division, etc
+files:  
+    description: my_profiles/wisconsin/description.md
+    auspice_config: "defaults/my_auspice_config.json"
+
 builds:
-  wisconsin-global_context:
+  wisconsin_global-context:
     subsampling_scheme: wisconsin-global
     geographic_scale: division
     region: North America
     country: USA
     division: Wisconsin
-  wisconsin:
+  wisconsin_statewide:
     subsampling_scheme: wisconsin-all
     geographic_scale: division
     region: North America
     country: USA
     division: Wisconsin
-  wisconsin-dane-county:
+  wisconsin_dane-county:
     subsampling_scheme: dane-county
     geographic_scale: location
     region: North America
     country: USA
     division: Wisconsin
     location: Dane County
-  wisconsin-milwaukee-county:
+  wisconsin_milwaukee-county:
     subsampling_scheme: milwaukee
     geographic_scale: location
     region: North America
     country: USA
     division: Wisconsin
     location: Milwaukee County  
-  wisconsin-avrl:
+  wisconsin_avrl:
     subsampling_scheme: avrl
     geographic_scale: country
     region: North America
