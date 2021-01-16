@@ -1,6 +1,6 @@
 {
   "title": "Genomic epidemiology of SARS-CoV-2 in Wisconsin",
-  "build_url": "https://github.com/gagekmoreno/Wisconsin-SARS-CoV-2_Nextstrain",
+  "build_url": "https://github.com/gagekmoreno/Wisconsin-SARS-CoV-2",
   "maintainers": [
     {"name": "Gage Moreno, Kat Braun, and AVRL et al", "url": "https://openresearch.labkey.com/wiki/Coven/page.view?name=sars-cov-2-sequencing"}
   ],
@@ -82,6 +82,41 @@
       "key": "region_exposure",
       "title": "Region of exposure",
       "type": "categorical"
+    },
+    {
+      "key": "recency",
+      "title": "Submission Date",
+      "type": "categorical"
+    },
+    {
+      "key": "campus",
+      "title": "Campus",
+      "type": "categorical"
+    },
+    {
+      "key": "dorm",
+      "title": "Dorm",
+      "type": "categorical"
+    },
+    {
+      "key": "CycleThresh",
+      "title": "Cycle threshold",
+      "type": "categorical"
+    },
+    {
+      "key": "Ethnicity",
+      "title": "Ethnicity",
+      "type": "categorical"
+    },
+    {
+      "key": "Race",
+      "title": "Race",
+      "type": "categorical"
+    },
+    {
+      "key": "pangolin_lineage",
+      "title": "Pangolin Lineage",
+      "type": "categorical"
     }
   ],
   "geo_resolutions": [
@@ -104,11 +139,15 @@
     "country",
     "region",
     "host",
-    "author"
+    "author",
+    "campus",
+    "dorm",
+    "pangolin_lineage"
   ],
   "panels": [
     "tree",
     "map",
+    "frequencies",
     "entropy"
   ]
 }

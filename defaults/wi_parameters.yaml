@@ -12,6 +12,13 @@ metadata: "data/metadata.tsv"
 
 reference_node_name: "USA/WA1/2020"
 
+# Preprocess steps involve the creation and storage of intermediate files
+# (alignments etc). These steps are opt-in, and are not run by default.
+# These settings define the compression/decompression settings for these files
+preprocess:
+  compression: "xz"
+  deflate: "xz -dcq"
+
 # Define files used for external configuration. Common examples consist of a
 # list of strains to include and exclude from analyses, a reference sequence to
 # align sequences to, colors for strain attributes in auspice, and auspice
@@ -23,7 +30,7 @@ files:
   outgroup: "defaults/outgroup.fasta" # is this arg still used? file doesn't exist in gh repo
   ordering: "defaults/color_ordering.tsv"
   color_schemes: "defaults/color_schemes.tsv"
-  auspice_config: "my_profiles/wisconsin/my_auspice_config.json"
+  auspice_config: "defaults/my_auspice_config.json"
   lat_longs: "defaults/lat_longs.tsv"
   description: "defaults/description.md"
   clades: "defaults/clades.tsv"
@@ -36,8 +43,10 @@ filter:
   min_length: 27000
 
   # Omit sequences with incomplete date annotations, and USA seqs without a state.
-  exclude_where: "division='USA' date='2020' date='2020-01-XX' date='2020-02-XX' date='2020-03-XX' date='2020-04-XX' date='2020-05-XX' date='2020-06-XX' date='2020-01' date='2020-02' date='2020-03' date='2020-04' date='2020-05' date='2020-06'"
+  exclude_where: "division='USA' date='2020' date='2020-01-XX' date='2020-02-XX' date='2020-03-XX' date='2020-04-XX' date='2020-05-XX' date='2020-06-XX' date='2020-07-XX' date='2020-08-XX' date='2020-09-XX' date='2020-10-XX' date='2020-11-XX' date='2020-12-XX' date='2020-01' date='2020-02' date='2020-03' date='2020-04' date='2020-05' date='2020-06' date='2020-07' date='2020-08' date='2020-09' date='2020-10' date='2020-11' date='2020-12'"
 
+  # Exclude sequences which are from before late 2019 (likely date mix-ups)
+  min_date: 2019.74
 
 # Alignment settings
 # Alignments are partitioned into smaller groups to speed up the overall alignment process.
